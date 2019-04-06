@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="description de la page">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
+	<title>Tire ta corde</title>
+	<link rel="icon" href="img_pendu/skull.png" />
+
+	<link rel="stylesheet" href="https://fonts.google.com/specimen/NTR?selection.family=Montserrat|NTR">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	
+	<!-- External CSS -->
+	<link rel="stylesheet" href="css/style_pendu.css">
+	
+	<!-- Custom CSS -->
+	<style>
+	
+	</style>
+	
+</head>
+
+<body onkeydown="clavier(event)">
+	
+	<section class="container border rounded mt-5 mb-5 ">
+		<div class="row bg-dark rounded text-white ">
+			<div class="col-12 text-center py-4">
+				<h1>Le jeu du pendu</h1>
+				<h4 class="font-italic">Javascript</h4>
+			</div>
+			<div class="col-12 p-3">
+				
+				<h5 class="">Regles du jeu</h5>
+				<ul>
+					<li>Une partie se joue en 10 mots</li>
+					<li>Vous n'avez que 4 essais pour trouver un mot</li>
+					<li>Vous pouvez utiliser votre clavier ou le clavier virtuel</li>
+					<li>Un indice et un seul vous sera donne à chaque nouveau mot à trouver</li>
+					<li>Bonne chance !</li></ul>
+					<input type="button" id="partie" class="btn btn-light mx-auto rounded" value="Commencer la partie" onClick="debuter()"/></div>
+				</div>
+				<div class="row">
+					<div id="colonne_gauche" class="col-md-6 rounded p-3  my-3 text-white text-center lead">
+						<div class="astuce " id="indication">
+							<p>Indice :<br /><strong>Indice pour le mot a trouver</strong></p>
+						</div>
+						<div class="astuce" id="leMot" style="font-size:20px;letter-spacing:2px;">
+							<p>Mot a trouver</p>
+						</div>
+						<div class="astuce" id="leScore">
+							<p>Votre score : <strong>10 / 10</strong> - Mots restants : <strong>10</strong></p>
+						</div>
+						
+					</div>
+					<div class="col-md-6 rounded p-3 my-3 text-center">
+						<img src='img_pendu/pendu_defaut.png' alt='' id='lePendu' style='height:220px;' />
+					</div>
+				</div>
+				
+				<div class="row bg-dark text-center rounded py-4">
+					
+					<div class="col-md-6 border rounded  m-auto p-3" id="apercu">
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('A'))" id="a">A</button>
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('B'))" id="b">B</button>
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('C'))" id="c">C</button>
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('D'))" id="d">D</button>
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('E'))" id="e">E</button>
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('F'))" id="f">F</button>
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('G'))" id="g">G</button>
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('H'))" id="h">H</button>
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('I'))" id="i">I</button>
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('J'))" id="j">J</button>
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('K'))" id="k">K</button>
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('L'))" id="l">L</button>
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('M'))" id="m">M</button>		
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('N'))" id="n">N</button>
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('O'))" id="o">O</button>
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('P'))" id="p">P</button>
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('Q'))" id="q">Q</button>
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('R'))" id="r">R</button>
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('S'))" id="s">S</button>
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('T'))" id="t">T</button>
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('U'))" id="u">U</button>
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('V'))" id="v">V</button>
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('W'))" id="w">W</button>
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('X'))" id="x">X</button>
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('Y'))" id="y">Y</button>
+						<button class="bouton rounded mt-1" onclick="(clavier_virtuel('Z'))" id="z">Z</button>
+						
+					</div>
+				</div>   
+			</div>
+		</section>
+		
+		
+		<!-- Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<!-- Custom JS -->
+		<script src="js/mots.js"></script>
+		<script src="js/pendu.js"></script> 
+		
+	</body>
+	</html>

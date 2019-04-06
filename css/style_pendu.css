@@ -1,0 +1,26 @@
+@font-face{
+    font-family:godofwar;
+    src:url(../font/GODOFWAR.TTF);
+}
+body{
+    background:url(../img_pendu/art.jpg) center center no-repeat;
+    background-size: cover;
+    font-family:godofwar;
+}
+.bouton{
+    width:35px;
+    height:35px;
+    background-color: powderblue;
+}  
+.btn{
+    width:100%;
+    background-color: slategray;
+    color:white
+}
+.btn:hover{
+    background-color:powderblue;
+    color:white;
+}
+.bg-dark{	
+    opacity:0.9;
+}
